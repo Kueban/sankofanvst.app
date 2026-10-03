@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sankofa NVST</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <!-- Liens d'invitation de tontine : https://sankofanvst.app/join/<code>
+       (TontineDetailScreen). GitHub Pages sert cette page pour tout chemin
+       inconnu ; le code est lu dans l'adresse et affiché comme texte. -->
+  <section id="invitation" hidden>
+    <h1>Invitation à une tontine Sankofa</h1>
+    <p>Votre code d'invitation :</p>
+    <p class="code" id="code"></p>
+    <p>Ouvrez ce lien sur le téléphone où l'application Sankofa est installée, avec le compte qui doit rejoindre la tontine.</p>
+    <p><a class="bouton" id="ouvrir" href="#">Ouvrir dans Sankofa</a></p>
+    <p class="note">Si l'application ne s'ouvre pas, transmettez ce code à l'organisateur de la tontine.</p>
+  </section>
+  <section id="introuvable" hidden>
+    <h1>Page introuvable</h1>
+    <p><a href="/">Sankofa NVST</a></p>
+  </section>
+</main>
+<script>
+  (function () {
+    var m = location.pathname.match(/^\/join\/([A-Za-z0-9-]{4,32})\/?$/);
+    if (!m) { document.getElementById('introuvable').hidden = false; return; }
+    var code = m[1].toUpperCase();
+    document.getElementById('code').textContent = code;
+    document.getElementById('ouvrir').href = 'sankofa://join?code=' + encodeURIComponent(code);
+    document.getElementById('invitation').hidden = false;
+  })();
+</script>
+</body>
+</html>

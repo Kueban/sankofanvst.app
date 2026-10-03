@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.philbank.SankofaTest",
+      "sha256_cert_fingerprints": ["E6:63:68:82:9C:E5:55:B7:8A:17:B7:73:06:F2:B7:5C:FE:24:A0:DC:A7:5B:78:4F:8B:2A:BA:46:14:26:A6:6B"]
+    }
+  }
+]
